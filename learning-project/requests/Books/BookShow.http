@@ -1,0 +1,3 @@
+GET http://192.168.56.56/api/books/3
+Accept: application/json
+
