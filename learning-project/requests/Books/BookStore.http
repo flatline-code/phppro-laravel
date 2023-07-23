@@ -1,0 +1,10 @@
+POST http://192.168.56.56/api/books
+Content-Type: application/json
+Accept: application/json
+
+{
+    "name": "Book05",
+    "year": "2000",
+    "lang": "ua",
+    "pages": 100
+}

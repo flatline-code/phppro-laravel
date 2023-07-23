@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests\Book;
 
+use App\Enum\LangEnum;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class BookUpdateRequest extends FormRequest
 {
@@ -14,11 +16,11 @@ class BookUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'id' => ['required', 'integer'],
-            'name' => ['required', 'string', 'max:300'],
-            'author' => ['required', 'string', 'max:300'],
-            'year' => ['required', 'integer'],
-            'countPages' => ['required', 'integer', 'min:15'],
+            'id' => ['required', 'integer', 'exists:books,id'],
+            'name' => ['required', 'string', 'max:300', 'min:2', 'unique:books'],
+            'year' => ['required', 'integer', "between:1970," . date('Y')],
+            "lang" => ["required", "string", "max:2", Rule::enum(LangEnum::class)],
+            'pages' => ['required', 'integer', 'max:55000', 'min:10'],
         ];
     }
 

@@ -1,0 +1,11 @@
+PUT http://192.168.56.56/api/books/2
+Content-Type: application/json
+Accept: application/json
+
+{
+    "id": 2,
+    "name": "Book02(updated)",
+    "year": "2000",
+    "lang": "ua",
+    "pages": 100
+}
